@@ -5,9 +5,6 @@ const TrafficLight = () => {
     const [color, setColor] = useState("red");
     const [addPurple, setAddPurple] = useState(false);
 
-    const colors = ["red", "yello", "green"];
-    const colorIndex = 0;
-
     const alternateColors = (prevColor) => {
         if (prevColor === "red") setColor("yellow");
         if (prevColor === "yellow") setColor("green");
@@ -31,18 +28,20 @@ const TrafficLight = () => {
                 <div className={color === "green" ? "green light selected" : "green light"} onClick={() => setColor("green")}></div>
                 {addPurpleLight()}
             </div>
+            <div className="container d-flex justify-content-center mt-4">
+                <button className="btn btn-primary me-2" id="toggleButton" onClick={() => alternateColors(color)}>
+                    Alternate Color
+                </button>
+                <button className="btn btn-primary" id="purpleButton" onClick={() => {
+                    setAddPurple(!addPurple)
+                    if (addPurple) {
+                        setColor("red");
+                    }
+                }}>
+                    {addPurple ? "Remove Purple" : "Add Purple"}
+                </button>
+            </div>
 
-            <button id="toggleButton" onClick={() => alternateColors(color)}>
-                Alternate Color
-            </button>
-            <button id="purpleButton" onClick={() => {
-                setAddPurple(!addPurple)
-                if (addPurple) {
-                    setColor("red");
-                }
-            }}>
-                {addPurple ? "Remove Purple" : "Add Purple"}
-            </button>
         </div>
     )
 }

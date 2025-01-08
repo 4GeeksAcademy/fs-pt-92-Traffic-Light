@@ -11,6 +11,7 @@
     background-color: black;
     margin: auto;
     padding-top: 15px;
+    border-radius: 10px;
 }
 
 .trafficLigtsBig{
@@ -43,4 +44,8 @@
 
 .selected{
     box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.7);
+}
+
+.buttons{
+    margin: auto;
 }
